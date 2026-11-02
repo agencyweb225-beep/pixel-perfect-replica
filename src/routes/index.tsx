@@ -115,8 +115,10 @@ function Intro() {
           </Reveal>
         </div>
         <Reveal delay={0.2} className="relative mx-auto aspect-square w-full max-w-md">
-          <div className="absolute inset-0 rounded-full bg-ink pattern-sock-dark" />
-          <div className="absolute inset-[12%] overflow-hidden rounded-full bg-brand">
+          <div className="absolute inset-0 overflow-hidden rounded-full bg-brand">
+            <div className="pattern-sock-light absolute inset-0" />
+          </div>
+          <div className="absolute inset-[12%] overflow-hidden rounded-full bg-paper pattern-sock-paper">
             <Dido float={false} className="absolute -bottom-4 left-1/2 w-[48%] -translate-x-1/2 rotate-6" />
           </div>
           <p className="absolute left-0 top-6 -rotate-6 rounded-full border-2 border-ink bg-sun px-4 py-2 font-hand text-xl text-ink">one of a kind</p>
