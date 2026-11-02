@@ -78,7 +78,7 @@ function Hero() {
           initial={reduce ? false : { y: 200, opacity: 0, rotate: 8 }}
           animate={{ y: 0, opacity: 1, rotate: 0 }}
           transition={{ duration: 1.1, delay: 0.4, ease: [0.2, 0.8, 0.2, 1] }}
-          className="pointer-events-none absolute -bottom-16 right-[-4rem] w-[40vw] max-w-[440px] sm:right-0 lg:relative lg:bottom-auto lg:right-auto lg:mx-auto lg:w-full lg:max-w-[420px] lg:-mb-40 lg:self-end"
+          className="pointer-events-none absolute -bottom-16 right-0 w-[40vw] max-w-[440px] sm:right-8 lg:relative lg:bottom-auto lg:right-auto lg:mx-auto lg:-translate-x-16 lg:w-full lg:max-w-[400px] lg:-mb-24 lg:self-end"
         >
           <Dido say="HEY! YOU FOUND US." eager className="[&>div]:hidden sm:[&>div]:block" />
         </motion.div>
