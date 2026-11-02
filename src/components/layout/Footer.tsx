@@ -53,7 +53,7 @@ export function Footer() {
             </div>
           </div>
         </div>
-        <div className="mt-16 flex flex-col items-start justify-between gap-4 border-t border-paper/30 pt-6 text-sm sm:flex-row sm:items-center">
+        <div className="mt-16 flex flex-col items-start justify-between gap-4 border-t border-paper/30 pt-6 text-sm sm:flex-row sm:items-center lg:pr-36">
           <p>© 2026 ODD SOCKS. ALL RIGHTS RESERVED.</p>
           <p className="font-hand text-lg">{SITE.tagline}</p>
         </div>
