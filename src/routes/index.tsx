@@ -62,7 +62,7 @@ function Hero() {
           <h1 className="mt-4 text-[clamp(4rem,13vw,11rem)] leading-[0.85]">
             <span className="block overflow-hidden"><motion.span {...line(0.1)} className="block">Odd</motion.span></span>
             <span className="block overflow-hidden"><motion.span {...line(0.2)} className="block">stands</motion.span></span>
-            <span className="block overflow-hidden"><motion.span {...line(0.3)} className="block text-ink">out.</motion.span></span>
+            <span className="block overflow-hidden"><motion.span {...line(0.3)} className="block text-paper">out.</motion.span></span>
           </h1>
           <Reveal delay={0.5}>
             <p className="mt-8 max-w-[70%] text-lg leading-relaxed sm:max-w-lg">
