@@ -11,7 +11,7 @@ export function Dido({
 }: {
   className?: string;
   say?: string;
-  bubbleSide?: "left" | "right";
+  bubbleSide?: "left" | "right" | "top";
   float?: boolean;
   eager?: boolean;
 }) {
@@ -20,11 +20,13 @@ export function Dido({
       {say && (
         <div
           className={cn(
-            "absolute top-[6%] z-10 w-max max-w-[11rem] rounded-2xl border-2 border-ink bg-paper px-4 py-2 font-hand text-lg leading-tight text-ink shadow-pop",
-            bubbleSide === "left" ? "right-[78%]" : "left-[78%]",
+            "absolute z-10 w-max max-w-[11rem]",
+            bubbleSide === "top" ? "bottom-[92%] left-1/2 -translate-x-1/2" : bubbleSide === "left" ? "top-[6%] right-[78%]" : "top-[6%] left-[78%]",
           )}
         >
-          {say}
+          <div className="animate-float rounded-2xl border-2 border-ink bg-paper px-4 py-2 text-center font-hand text-lg leading-tight text-ink shadow-pop">
+            {say}
+          </div>
         </div>
       )}
       <img
