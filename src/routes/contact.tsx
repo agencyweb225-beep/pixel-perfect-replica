@@ -27,7 +27,7 @@ function Contact() {
   return (
     <>
       <PageHero title="Let's make something happen." sub="Your next big idea starts here.">
-        <Dido say="READY TO GROW?" className="mx-auto hidden w-52 lg:block lg:-mb-32" eager />
+        <Dido say="READY TO GROW?" bubbleSide="top" className="mx-auto hidden w-52 lg:block lg:-mb-32" eager />
       </PageHero>
       <section className="bg-paper py-20 sm:py-28">
         <div className="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[1fr_1.5fr]">
