@@ -55,7 +55,7 @@ function Services() {
           <section key={s.slug} id={s.slug} className={cn("relative scroll-mt-20 overflow-hidden py-24 sm:py-32", t.wrap)}>
             {i === 2 && (
               <div className="pointer-events-none absolute -bottom-24 right-6 z-10 w-32 sm:right-12 sm:w-40">
-                <Dido say="YOUR BRAND DESERVES BETTER." bubbleSide="left" />
+                <Dido say="YOUR BRAND DESERVES BETTER." bubbleSide="left" className="[&>div]:right-[110%]" />
               </div>
             )}
             <div className={cn("mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-2 lg:gap-20", flip && "lg:[&>*:first-child]:order-2")}>
