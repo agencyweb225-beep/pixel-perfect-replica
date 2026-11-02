@@ -34,7 +34,7 @@ function About() {
         sub="We're ODD SOCKS. And we like it that way."
         intro="ODD SOCKS is a creative social media marketing agency built around one simple idea: brands deserve to be remembered. We help businesses communicate their identity, connect with their audiences, and grow their digital presence through creative thinking and strategic marketing."
       >
-        <Dido say="LET'S MAKE SOMETHING ODD." className="mx-auto hidden w-56 lg:block lg:-mb-32" eager />
+        <Dido say="LET'S MAKE SOMETHING ODD." bubbleSide="top" className="mx-auto hidden w-56 lg:block lg:-mb-32" eager />
       </PageHero>
 
       <section className="bg-paper py-24 sm:py-32">
