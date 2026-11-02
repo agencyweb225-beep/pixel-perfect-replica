@@ -17,7 +17,7 @@ export function CtaBand() {
           <BrandLink to="/contact" variant="brand" size="lg" className="mt-8 border-paper">Start a project</BrandLink>
         </Reveal>
       </div>
-      <Dido say="READY TO GROW?" className="absolute -bottom-24 right-[-2rem] hidden w-56 rotate-[-12deg] md:block lg:w-72" />
+      <Dido say="READY TO GROW?" className="[&>div]:top-[42%] absolute -bottom-24 right-[-2rem] hidden w-56 rotate-[-12deg] md:block lg:w-72" />
     </section>
   );
 }
