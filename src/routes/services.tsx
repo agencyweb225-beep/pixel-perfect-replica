@@ -52,7 +52,12 @@ function Services() {
         const t = THEMES[i % THEMES.length]!;
         const flip = i % 2 === 1;
         return (
-          <section key={s.slug} id={s.slug} className={cn("scroll-mt-20 py-24 sm:py-32", t.wrap)}>
+          <section key={s.slug} id={s.slug} className={cn("relative scroll-mt-20 overflow-hidden py-24 sm:py-32", t.wrap)}>
+            {i === 2 && (
+              <div className="pointer-events-none absolute -bottom-24 right-6 z-10 w-32 sm:right-12 sm:w-40">
+                <Dido say="YOUR BRAND DESERVES BETTER." bubbleSide="left" />
+              </div>
+            )}
             <div className={cn("mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-2 lg:gap-20", flip && "lg:[&>*:first-child]:order-2")}>
               <Reveal>
                 <div className="flex items-start justify-between gap-6">
@@ -90,7 +95,6 @@ function Services() {
                     <li key={it} className={cn("rounded-full border-2 px-3 py-1 font-display text-xs uppercase", t.card)}>{it}</li>
                   ))}
                 </ul>
-                {i === 2 && <Dido say="YOUR BRAND DESERVES BETTER." bubbleSide="left" className="ml-auto w-32" />}
               </Reveal>
             </div>
           </section>
