@@ -6,12 +6,14 @@ export function Dido({
   className,
   say,
   bubbleSide = "left",
+  bubbleClassName,
   float = true,
   eager = false,
 }: {
   className?: string;
   say?: string;
   bubbleSide?: "left" | "right" | "top";
+  bubbleClassName?: string;
   float?: boolean;
   eager?: boolean;
 }) {
@@ -24,7 +26,7 @@ export function Dido({
             bubbleSide === "top" ? "bottom-[105%] left-1/2 -translate-x-1/2" : bubbleSide === "left" ? "top-[6%] right-[78%]" : "top-[6%] left-[78%]",
           )}
         >
-          <div className="animate-float rounded-2xl border-2 border-ink bg-paper px-4 py-2 text-center font-hand text-lg leading-tight text-ink shadow-pop">
+          <div className={cn("animate-float rounded-2xl border-2 border-ink bg-paper px-4 py-2 text-center font-hand text-lg leading-tight text-ink shadow-pop", bubbleClassName)}>
             {say}
           </div>
         </div>
