@@ -8,7 +8,10 @@ import {
   Scripts,
   type ErrorComponentProps,
 } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
+import type { User } from "@supabase/supabase-js";
+import { supabase } from "@/integrations/supabase/client";
+import { AuthContext } from "@/components/auth/AuthContext";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -118,9 +121,30 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const router = useRouter();
+  const [auth, setAuth] = useState<{ user: User | null; ready: boolean }>({ user: null, ready: false });
+  useEffect(() => {
+    let active = true;
+    let revision = 0;
+    async function refreshUser() {
+      const current = ++revision;
+      const { data } = await supabase.auth.getUser();
+      if (active && revision === current) setAuth({ user: data.user, ready: true });
+    }
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event) => {
+      if (event !== "SIGNED_IN" && event !== "SIGNED_OUT" && event !== "USER_UPDATED") return;
+      if (event === "SIGNED_OUT") { revision++; setAuth({ user: null, ready: true }); }
+      else setTimeout(() => { if (active) void refreshUser(); }, 0);
+      void router.invalidate();
+      if (event !== "SIGNED_OUT") void queryClient.invalidateQueries();
+    });
+    void refreshUser();
+    return () => { active = false; subscription.unsubscribe(); };
+  }, [router, queryClient]);
 
   return (
     <QueryClientProvider client={queryClient}>
+      <AuthContext.Provider value={auth}>
       <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded focus:bg-sun focus:px-4 focus:py-2 focus:text-ink">Skip to content</a>
       <Navbar />
       <main id="main">
@@ -128,6 +152,7 @@ function RootComponent() {
       </main>
       <Footer />
       <ScrollTop />
+      </AuthContext.Provider>
     </QueryClientProvider>
   );
 }

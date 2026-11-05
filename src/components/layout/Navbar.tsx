@@ -5,8 +5,11 @@ import { Logo } from "@/components/brand/Logo";
 import { BrandLink } from "@/components/brand/BrandButton";
 import { NAV } from "@/lib/site";
 import { cn } from "@/lib/utils";
+import { useAuth } from "@/components/auth/AuthContext";
+import { BrandAction } from "@/components/brand/BrandAction";
 
 export function Navbar() {
+  const { user, ready } = useAuth();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -40,17 +43,18 @@ export function Navbar() {
             </li>
           ))}
         </ul>
-        <div className="hidden lg:block">
+        <div className="hidden items-center gap-3 lg:flex">
+          {ready && <Link to={user ? "/account" : "/auth"} className="font-display text-sm uppercase text-paper">{user ? "My account" : "Sign in"}</Link>}
           <BrandLink to="/contact" variant="paper">Let's Talk</BrandLink>
         </div>
-        <button
+        <BrandAction
           className="rounded-full border-2 border-paper p-2 text-paper lg:hidden"
           onClick={() => setOpen((o) => !o)}
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
         >
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-        </button>
+        </BrandAction>
       </nav>
 
       <div className={cn("fixed inset-x-0 bottom-0 top-[64px] overflow-y-auto bg-ink pattern-sock-dark transition-all duration-300 lg:hidden", open ? "visible opacity-100" : "invisible opacity-0")}>
@@ -69,6 +73,7 @@ export function Navbar() {
           ))}
         </ul>
         <div className="px-6 pt-8" onClick={() => setOpen(false)}>
+          {ready && <Link to={user ? "/account" : "/auth"} className="mb-6 block font-display text-2xl uppercase text-paper">{user ? "My account" : "Sign in"}</Link>}
           <BrandLink to="/contact" variant="sun" size="lg">Let's Talk</BrandLink>
         </div>
       </div>
