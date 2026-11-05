@@ -80,7 +80,7 @@ function Hero() {
           transition={{ duration: 1.1, delay: 0.4, ease: [0.2, 0.8, 0.2, 1] }}
           className="pointer-events-none absolute -bottom-16 right-0 w-[40vw] max-w-[440px] sm:right-8 lg:relative lg:bottom-auto lg:right-auto lg:mx-auto lg:translate-x-16 lg:w-full lg:max-w-[400px] lg:-mb-24 lg:self-end"
         >
-          <Dido say="HEY! YOU FOUND US." bubbleSide="top" bubbleClassName="px-3 py-1.5 text-base" eager className="[&>div]:hidden sm:[&>div]:block" />
+          <Dido say="HEY! YOU FOUND US." bubbleClassName="px-2.5 py-1 text-sm" eager className="[&>div]:hidden sm:[&>div]:block [&>div]:right-[96%]" />
         </motion.div>
       </div>
       <SockMark className="absolute left-[46%] top-28 hidden h-14 w-14 animate-wiggle text-sun lg:block" />
