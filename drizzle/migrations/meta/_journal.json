@@ -15,6 +15,13 @@
       "when": 1793909653903,
       "tag": "0001_create_user_profiles",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1794571126644,
+      "tag": "0002_validate_contact_submission_insert_policy",
+      "breakpoints": true
     }
   ]
 }
